@@ -1,0 +1,25 @@
+<div id="admin" class="row" >
+       <div class="col-md-12">
+       <a id="bottom_admin" href="/auth/logout"><button type="submit" form="my-form" class="btn btn-success">Log out</button></a>
+        <h1>Admin</h1>
+
+         <div class="col-sm-2 col-md-2">
+               <a href="/admin/product/new" class="thumbnail">
+                     
+                       <img src="/uploads/depositphotos_67521265-stock-photo-damaged-round-red-stamp-new.jpg">
+                <p>NEW Product</p>
+                </a> 
+          </div>
+          {{#each product}}
+          <div class="col-sm-2 col-md-2">
+               <a href="/admin/product/{{this._id}}" class="thumbnail">
+                     
+                       <img src="{{this.image}}">
+                <p>{{this.name}}</p>
+                <p>${{this.price}}</p>
+                </a> 
+          </div>
+          {{/each}}
+
+       
+</div> 

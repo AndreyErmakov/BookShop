@@ -1,0 +1,32 @@
+{{# each products}}
+    <div class="products">
+       <a href="/product/{{this._id}}">
+           <img id="{{id}}" src="{{image}}">
+       </a> 
+        <p>{{name}}</p>
+        <p>$ {{price}}</p>
+        
+    </div>
+{{/each}}  
+
+<div class="navigationProduct"  class="list-group">
+    <ul id="listProducts"> 
+         {{#if back}}
+             <li id="back" data ="back" >
+                <span   class="{{back}}" aria-hidden="true"> </span>
+            </li>
+        {{/if}}
+
+        {{#foo page classDisabled currentPage}} 
+             {{this}}
+        {{/foo}} 
+
+        {{#if next}}
+            <li id= "next" data="next">
+                <span   class="{{next}}" aria-hidden="true"> </span>
+            </li> 
+        {{/if}}
+        
+    </ul> 
+</div>
+

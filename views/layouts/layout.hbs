@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <script defer src="/javascripts/jquery.js"></script>
+    <script defer src="/javascripts/bootstrap.min.js"></script>
+    <script defer src="/javascripts/menu.js"></script>
+    <script defer src="/javascripts/main.js"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+
+  <body>
+
+
+  <div class="container">
+    <div class="row top">
+    <div id="header">
+      <ul id="headerTop">
+        <li><a href="">Help</a></li>
+        <li><a href="http://localhost:3000/auth/order">Order Status</a></li>
+        {{# if login}}
+         <li><a href="http://localhost:3000/auth/myAccount">My Account</a></li>
+        {{else}}
+        <li><a href="http://localhost:3000/auth/singup">My Account</a></li>
+       {{/if}}
+        <li><a href="http://localhost:3000/auth/singin">Sing in</a></li>
+      </ul>
+    </div>
+
+    <nav id="layer2" class="navbar navbar-default">
+    <div id="Layer2Position" class="container-fluid">
+      <div id="logotip" class="navbar-header">
+        <a href="/"><img id="positionLog" src="/img/logotip.png"></a>
+      </div>
+      <form id="screnFon"  class="navbar-form navbar-left" onsubmit="Menu();return false">
+        <div id="search" class="form-group">
+          <input id="search_input" type="text"   class="form-control who" autocomplete="off" value="" onkeyup= 'Search(this)'/>
+        </div>
+       <button id="scren" type="button" class="btn btn-default" data="buttonSearch"><img src="/img/search.png"></button>
+       
+         <div id="list-search">
+           
+         </div>
+      </form>
+
+      <div id="cart">
+        <img src="/img/youCart.png">
+        <p>({{session.cart.totalQty }} items)</p>
+        <p>Your cart</p>
+        <p>$ {{session.cart.totalPrice}}</p>
+        <a href="/shopping/cart"><img id="checkout" src="/img/checkout.png"></a>
+      </div>
+
+      <div id="wish-list">
+        <a href="/auth/wishlist"><img  src="/img/wish-list.png"></a>
+        <p>{{session.wish}}</p>
+      </div>
+      
+    </div>
+    </nav>
+</div>
+
+    
+            {{{body}}}
+
+
+
+   
+
+   </div>
+    
+
+   
+
+  </body>
+</html>

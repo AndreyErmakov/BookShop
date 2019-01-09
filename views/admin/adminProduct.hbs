@@ -1,0 +1,59 @@
+<div id="admin" class="row">
+       <div class="col-md-12">
+         <a id="bottom_admin" href="/auth/logout"><button type="submit" form="my-form" class="btn btn-success">Log out</button></a>
+        <h1>Change product</h1>
+        <form id="remove_product" method="POST">
+             <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+            <input type="hidden" name="remove" value="remove" >
+            {{#each product}}
+                <input type="hidden" name="image" value="{{this.image}}" >
+            {{/each}}
+            <button class="btn btn-danger">Remove product</button>
+          </form>
+    
+
+        <p>{{newimage}}</p>
+        
+        <form  id='uploadForm' action='/admin/upload'  method='post' encType="multipart/form-data">
+                <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+                {{#each product}}
+                <input type="hidden" name="href" value="/admin/product/{{this._id}}">
+                <input type="hidden" name="product" value="{{this._id}}">
+                <input type="hidden" name="image" value="{{this.image}}">
+                {{/each}}
+                <input type="file" name="sampleFile" />
+                <input type='submit' value='Upload!' />
+        </form>
+
+   <form id="form_admin"  method="POST" >
+                  
+            <input type="hidden" name="_csrf" value="{{ csrfToken }}" form="form_admin">
+ {{#each product}}
+       
+          <div>
+                 <img src="{{this.image}}">
+
+                <label>Name</label>
+                <input type="text" name="name"  value="{{this.name}}">
+                <label>Price</label>
+                <input type="number" name="price" step="0.01" value="{{this.price}}">
+                {{#each this}}
+                        {{#each sort}}
+                        <label class="admin_label">Categoria</label>
+                        <input class="admin_input" type="text" name="sort" value="{{this}}" >
+                        {{/each}}
+                {{/each}}
+                <div id="new_categoria"></div>
+                <button type="button" class="btn btn-warning center-block" onclick="removeCategoria()">Remove categoria</button>
+                 <button type="button" class="btn btn-success center-block" onclick="newCategoria()">New categoria</button>
+                <label>Description</label>
+                <textarea type="text" name="description"  value="">{{this.description}}</textarea>
+                <label>Other detalis</label>
+                <textarea type="text" name="otherDetalis"  value="">{{this.otherDetalis}}</textarea>
+                <button type="submit" class="btn btn-success center-block"  >Change Product</button>
+            </div> 
+     {{/each}}          
+    </form>
+
+ </div>
+</div>

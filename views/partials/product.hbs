@@ -1,0 +1,161 @@
+<div class="row">
+     <div class="col-sm-6 col-md-4 col-md-offset-4 col-sn-offset-3">
+       <div id="success" class="alert alert-success"  {{#if noMessage}}hidden{{/if}}>
+          {{message}}
+       </div>
+     </div>
+   </div>
+{{#each product}}
+{{!-- <div id="productNavigation">
+                <ol class="breadcrumb">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Disconts and Clearance</a></li>
+                        <li class="active">Sonatini Hippeastrum Alaska</li>
+                      </ol>
+        </div> --}}
+        <div id="productSpecification">
+           <div class="row">
+                <div id="page" class="col-sm-4 col-xs-12">
+                    <img id="productBook" src="{{this.image}}">
+                </div>
+             <div class="col-sm-8 col-xs-12">
+                        <div id="nameBook">
+                             <h2>{{this.name}}</h2>
+                         </div>
+                         <div id="inStock">   
+                            <img  src="/img/productinStock.png">
+                        </div>        
+                    <div id="information">
+                       <h4>{{#if  description}}
+                            {{this.description}}
+                            {{else}}
+                            Not description
+                            {{/if}}
+                        </h4>
+                    </div> 
+                    <div id="ourPrice">
+                        <p>Our Price: </p> 
+                        <p id="priceP">$ {{this.price}}</p>
+                        <a href="/cart/add/{{this._id}}"><img id="addTocart" src="/img/addTocart.png"></a>
+                        <div id="line"></div>
+                        <div id="safe">
+                            <img src="/img/safe.png">
+                        </div>
+                        <div>
+                           <img src="/img/paypal.png">
+                           <img src="/img/Mastercard.png">
+                           <img src="/img/visa.png">
+                            <img src="/img/Americanexepress.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="row">
+                <div class="col-md-9 col-xs-12">
+                    <div id="productInformation" >
+                        <ul class="nav nav-tabs menuProduct">
+                            <li role="presentation" data-toggle="tab" class="active"><a href="#panel1">Product Information</a></li>
+                            <li role="presentation" data-toggle="tab"><a href="#panel2">Other detalils</a></li>
+                        </ul>     
+                         <div class="tab-content">
+                            <div id="panel1" class="tab-pane fade in active"></div>
+                            <div id="panel2" class="tab-pane fade"> </div>
+                        </div>  
+                        <p>The Star Wars Episode I: The Phantom Menace novelization was written by Terry 
+                            Brooks and published on April 21, 1999 by Del Rey. It is based 
+                            on the script of the movie of the same name. Narration for the
+                            abridged audio version was performed by Michael Cumpsty.
+                            The unabridged version was performed by Alexander Adams. On January 31, 2012, a new paperback edition was
+                            released with a new short story, End Game, by James Luceno 
+                            featured inside. </p>
+
+                        </div>
+                        <div class="media">
+                            
+                                    <h4 class="media-heading">Product review</h4>
+                                <div id="comment">
+                                {{#if comment}}    
+                                {{#each comment}}
+
+                                    <div class="media-left media-middle">
+                                            <img class="media-object" src="/img/name1.png">
+                                    </div>
+                                    <div class="media-body">
+                                             <p>{{this.message}}</p>
+                                    </div>
+                                    
+                               
+                                <div id="inline"></div>
+                                
+                            {{/each}}
+                            {{else}}
+                                 <h4 class="media-heading">Not comment</h4>
+                            {{/if}}
+                            </div>
+                            <div>
+                                <h4>Write a comment</h4>
+                            </div>
+                                <form id="form_massage" action="/product" method="POST">
+                                        <div class="yourName">
+                                            <p>Your name</p>
+                                            <input type="text" name="name" class="form-control" form="form_massage" required>
+                                        </div>
+                                        <div class="email">
+                                            <p>email</p>
+                                            <input type="text" name="email" class="form-control" form="form_massage" required>
+                                        </div>
+                                        <div class="i_botton">
+                                            <p>Message</p>
+                                            <textarea name="message" class="form-control" form="form_massage" required></textarea>
+                                        </div>
+                                        <button type="submit" name="button" value="{{this._id}}" form="form_massage"><img src="/img/submit.png"></button>  
+                                </form>
+                        </div>
+
+                 </div>
+                 <div class="col-md-3 col-xs-12">
+                     <h3>You may also like</h3>
+                     <div class="productAlsoLike">
+                        <img src="/img/bookProduct.png">
+                        <P>The Hare With Amber</P>
+                        <img class="productPrice" src="/img/50.png">
+                        <img src="/img/readMore.png">
+                     </div>
+                     <div class="productAlsoLike">
+                        <img src="/img/bookProduct.png">
+                        <P>The Hare With Amber</P>
+                        <img class="productPrice" src="/img/50.png">
+                        <img src="/img/readMore.png">
+                    </div>
+                    <div class="productAlsoLike">
+                        <img src="/img/bookProduct.png">
+                        <P>The Hare With Amber</P>
+                        <img class="productPrice" src="/img/50.png">
+                        <img src="/img/readMore.png">
+                    </div>
+                    <div class="productAlsoLike">
+                        <img src="/img/bookProduct.png">
+                        <P>The Hare With Amber</P>
+                        <img class="productPrice" src="/img/50.png">
+                        <img src="/img/readMore.png">
+                    </div>
+                    <div class="productAlsoLike">
+                        <img src="/img/bookProduct.png">
+                        <P>The Hare With Amber</P>
+                        <img class="productPrice" src="/img/50.png">
+                        <img src="/img/readMore.png">
+                    </div>
+                    <div class="productAlsoLike">
+                        <img src="/img/bookProduct.png">
+                        <P>The Hare With Amber</P>
+                        <img class="productPrice" src="/img/50.png">
+                        <img src="/img/readMore.png">
+                    </div>
+                     
+                    
+                 </div>
+            </div>         
+{{/each}}
+
+{{> foter}}

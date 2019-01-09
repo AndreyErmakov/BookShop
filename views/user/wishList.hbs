@@ -1,0 +1,29 @@
+
+<div class="row">
+        <div class="col-sm-12 col-md-8 col-md-offset-3 col-lg-6">
+           <h2>Wish list</h2>
+           
+                
+                        
+                {{#each list }}
+                   <div class="media">
+                        <div class="media-left">
+                          <a href="#">
+                             <img class="media-object pull-left" src="{{this.image}}">
+                          </a>    
+                        </div>
+                        <div class="media-body">
+                                <h4 class="media-heading">{{this.name}}</h4>
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi aliquid quisquam eaque ab iste qui, omnis excepturi neque maxime cumque quo enim dolorum deleniti ipsa sunt saepe. Vero, officiis pariatur!</p>
+                        </div>
+                         <a class="pull-right" href="/remove-wishlist/{{this._id}}"><button type="submit" form="my-form" class="btn btn-danger">Delete</button></a>
+                  </div>
+                {{/each}}
+                  
+                
+                {{!-- <div class="panel-footer">$ 
+                        <strong>Total price: ${{ this.cart.totalPrice }}</strong>   
+                </div> --}}
+       
+        </div>
+</div> 

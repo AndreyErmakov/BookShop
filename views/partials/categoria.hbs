@@ -1,0 +1,78 @@
+
+              
+      <nav id="navigation" class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Categories</a>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li class="main-categoria" data="Computers"><a>Computers</a></li>
+              <li class="main-categoria" data="Cooking"><a>Cooking</a></li>
+              <li class="main-categoria" data="Education"><a>Education</a></li>
+              <li class="main-categoria" data="Fictio"><a>Fictio</a></li>
+              <li class="main-categoria" data="Health"><a>Health</a></li>
+              <li class="main-categoria" data="Mathematics"><a>Mathematics</a></li>
+              <li class="main-categoria" data="Medical"><a>Medical</a></li>
+              <li class="main-categoria" data="Reference"><a>Reference</a></li>
+              <li class="main-categoria" data="Science"><a>Science</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+  <div class="row">
+    <button id="button_categoria" type="button" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-th-list"></span> Categories</button>
+      <div id="categories" class="col-sm-2 col-xs-3">
+        <ul class="nav nav-pills nav-stacked">
+          <h3>Categories</h3>
+          <li  role="presentation" id="all"><a href="/">ALL</a></li>
+          <h4>Fiction & Literature</h4>
+
+          <li class="categoria"  role="presentation" data="Children">           <a href="/categoria/Children">Children</a></li>
+          <li class="categoria"  role="presentation" data="ScienceFiction">     <a href="/categoria/ScienceFiction">Science Fiction</a></li>
+          <li class="categoria"  role="presentation" data="Fantasy">            <a href="/categoria/Fantasy">Fantasy</a></li>
+          <li class="categoria"  role="presentation" data="Mystery">            <a href="/categoria/Mystery">Mystery</a></li>
+          <li class="categoria " role="presentation" data="Romance">            <a href="/categoria/Romance">Romance</a></li>
+          <li class="categoria"  role="presentation" data="Horror">             <a href="/categoria/Horror">Horror</a></li>
+          <li class="categoria"  role="presentation" data="Poetry">             <a href="/categoria/Poetry">Poetry</a></li>
+          <li class="categoria"  role="presentation" data="Literature">         <a href="/categoria/Literature">Literature</a></li>
+          <li class="categoria"  role="presentation" data="Crime">              <a href="/categoria/Crime">Crime</a></li>
+          <h4 class="h4">Non - Fiction</h4>
+          <li class="categoria"  role="presentation" data="Comic">              <a href="/categoria/Comic">Comic</a></li>
+          <li class="categoria"  role="presentation" data="Cook">               <a href="/categoria/Cook">Cook</a></li>
+          <li class="categoria"  role="presentation" data="Psychology">         <a href="/categoria/Psychology">Psychology</a></li>
+          <li class="categoria"  role="presentation" data="Medical">            <a href="/categoria/Medical">Medical</a></li>
+          <li class="categoria"  role="presentation" data="Art">                <a href="/categoria/Art">Art</a></li>
+          <li class="categoria"  role="presentation" data="Photography">        <a href="/categoria/Photography">Photography</a></li>
+          <li class="categoria"  role="presentation" data="Law">                <a href="/categoria/Law">Law</a></li>
+          <li class="categoria"  role="presentation" data="History">            <a href="/categoria/History">History</a></li>
+          <li class="categoria"  role="presentation" data="Business">           <a href="/categoria/Business">Business</a></li>
+          <li class="categoria"  role="presentation" data="Computer">           <a href="/categoria/Computer">Computer</a></li>
+          <h4>Other</h4>
+          <li class="categoria"  role="presentation" data="Baby">               <a href="/categoria/Baby">Baby</a></li>
+          <li class="categoria"  role="presentation" data="Sex">                <a href="/categoria/Sex">Sex</a></li>
+          <li class="categoria"  role="presentation" data="Travel">             <a href="/categoria/Travel">Travel</a></li>
+          <li class="categoria"  role="presentation" data="Science">            <a href="/categoria/Science">Science</a></li>
+          <li class="categoria"  role="presentation" data="Sport">              <a href="/categoria/Sports">Sports</a></li>    
+        </ul>
+      </div>
+
+      <div id="product" class="col-sm-12 col-md-10 col-xs-12">
+        
+
+        <div id="productsBorder" class="col-xs-12"> 
+        <H4 id="categoria">{{categoria}}</H4>
+
+          {{>products}}
+        </div>
+      </div>
+   </div>
+
+   {{> foter}}
