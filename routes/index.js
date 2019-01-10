@@ -3,8 +3,6 @@ var router = express.Router();
 var controllers = require('../controllers/home')
 
 var Product = require('../models/product');
-// var Cart = require('../models/cart')
-// var Order = require('../models/order')
 var WishList = require('../models/WishList')
 
 router.route('/')
@@ -151,9 +149,3 @@ function isLoggerIn(req,res, next) {
   req.flash( "error", "Not user in system" );
   res.redirect('/auth/singup')
 }
-
-
-
-//  Product.find({name:{$regex:"b"}},function(err, resu){
-//    console.log(resu)
-//  })

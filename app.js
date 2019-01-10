@@ -32,9 +32,7 @@ var hbsHelpers = Hbs.create({
   
 });
 
-
-
-mongoose.connect('mongodb://localhost:27017/local',{ useNewUrlParser: true } )
+mongoose.connect('mongodb://andrey:123QWE@ds119734.mlab.com:19734/bookshop',{ useNewUrlParser: true } )
 require('./config/passport')
 app.use(helmet())
 app.engine('.hbs',  hbsHelpers.engine)
