@@ -11,13 +11,16 @@ function Menu (){
     var buttonSearch    = document.querySelector('#scren')
     var searchInput     = document.querySelector('#search_input')
     var arr = []     
-    var categoria     = document.querySelector("#categoria") || 1
+    var categoria     = document.querySelector("#list_categoria") || 1
     var menuCategoria = document.querySelectorAll('.categoria')
+    var cat
     
     menuCategoria.forEach(function(r){
-        if(r.attributes.data.value == categoria.innerHTML){ 
-         arr.push(categoria.innerHTML) 
-         r.id = 'focus'
+        if(categoria.innerHTML != ''){
+            if(r.attributes.data.value == categoria.innerHTML){ 
+            arr.push(categoria.innerHTML) 
+            r.id = 'focus_cat'
+            }
         }
     })
    
@@ -29,7 +32,18 @@ function Menu (){
     clickActive.forEach(function(el){ el.onclick = assign });
 
     function tab(){
-    
+       menuCategoria.forEach(function(r){
+           if(r.attributes.id == undefined){
+               return false
+           }else{
+               if(r.attributes.id.value == 'focus_cat'){
+               
+                cat = r.attributes.data.value
+           }
+           }
+           
+       })
+       
         searchInput    = document.querySelector('#search_input')
         var  clickValue = this.attributes.data.value
         var  dis        = disabled.attributes.data.value
@@ -38,7 +52,7 @@ function Menu (){
             case 'newArrivals':
             case 'usedBooks':
             case 'specialOffers': arr.push(clickValue); break;
-
+            
             default:    activeElement.forEach(function(el) {
                 if(el.attributes.class.value == 'best active'){
                     arr.push(el.attributes.data.value)
@@ -54,14 +68,14 @@ function Menu (){
             case 'Mathematics':
             case 'Medical':
             case 'Reference':
-            case 'Science': arr.push(clickValue); break;
-            default:  activeCategoria.forEach(function(el){
+            case 'Science':arr.push(clickValue); break;
+            default: activeCategoria.forEach(function(el){
                 if(el.attributes.class == undefined){ return false } 
-                else{ arr.push(el.attributes.data.value)        
+                else{ arr.push(el.attributes.data.value) 
+                    
                 }
             })
         }
-
         if(dis == null){dis = 1}
         else{var currentPage = +dis;}
         var currentPage = +dis;
@@ -70,7 +84,6 @@ function Menu (){
         else{clickValue}
         if(+clickValue === +disabled.innerHTML){ return false }
        
-      
        var activeEl = JSON.stringify(arr)  
         $.ajax ({ 
         url: '/',
@@ -81,7 +94,8 @@ function Menu (){
             lastPage: +page[page.length - 1].innerHTML,
             firstPage: +page[0].innerHTML,
             activeEl : activeEl,
-            search: searchInput.value
+            search: searchInput.value,
+            cat: cat
         }}).then(function(data){
         $('#productsBorder').html(data)
         Menu()
@@ -92,23 +106,16 @@ function Menu (){
 
     function assign(){
         var menuCategoria = document.querySelectorAll('.categoria')
-        // var a = this.attributes.data.value
-
         clickActive.forEach(function(el){el.id=''})
         this.id = "focus"
-        all[0].children[1].id= 'focus'
-
         menuCategoria.forEach(function(r){
             if(r.id == 'focus'){ 
-                console.log(r)
                 all[0].children[1].id= ''
             }
         })
         tab.apply(this)
     }
 }
-
-
 
 function Search(e){
     var searchInput = document.querySelector('#search_input')

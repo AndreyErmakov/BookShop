@@ -4,8 +4,9 @@ var Product = require('../models/product');
 module.exports.getMain = function(req, res){
     var messages = req.flash('success')[0]
     var classDisabled = 'list-group-item disabled';
-    var prod = Product.find()   
+    var prod = Product.find()
     prod.exec(function(err, p){
+        console.log(p)
         if(err){console.log(err)}
     var product = [];
     var maxPage =  Math.ceil(p.length/15);
@@ -29,7 +30,6 @@ module.exports.getMain = function(req, res){
 }
 
 module.exports.postMain = function(req, res){
- console.log(req.body)
     var classDisabled = 'list-group-item disabled';
     var firstPage  = req.body.firstPage;
     var clickValue = req.body.clickValue;
@@ -40,6 +40,7 @@ module.exports.postMain = function(req, res){
     var next = '';
     var back = '';
     var sort;
+    var cat = req.body.cat
     activeEl = JSON.parse(activeEl)
     
     if(clickValue > 1){back = 'glyphicon glyphicon-arrow-left'}
@@ -52,10 +53,12 @@ module.exports.postMain = function(req, res){
         var strActiveEl = activeEl.join(', ')
         sort = {sort: strActiveEl, name:{$regex:req.body.search}} 
     }
-    if(activeEl.length > 1 && search.length >= 0){sort = {sort: activeEl, name:{$regex:req.body.search}}; clickValue = clickValue || 1}
-    
+    if(activeEl.length > 1 && search.length >= 0){
+        sort = {sort:{$all : activeEl}, name:{$regex:req.body.search}}; clickValue = clickValue || 1}
+    console.log(sort)
     Product.find(sort)   
     .exec(function(err, p){
+        console.log(p.length)
     var quantityPage = Math.ceil(p.length/15) 
     if(quantityPage == 0){quantityPage = 1} 
     if(quantityPage < 5){lastPage = quantityPage}
@@ -82,6 +85,7 @@ module.exports.postMain = function(req, res){
     next: next,
     classDisabled: classDisabled,
     page : +lastPage,
+    cat: cat
     }); 
     })
 }

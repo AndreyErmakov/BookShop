@@ -679,6 +679,15 @@ div#new_categoria > label {
 #button_categoria:hover ~ #product{
     width: 75%
 }
+#categories li a {
+    border-radius: 0px;
+    padding: 2px 10px;
+}
+
+#focus_cat a {
+    background: #8ccf6f;
+    color: #ffffff;
+}
 
 
 
