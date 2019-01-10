@@ -11,6 +11,8 @@ var flash = require('connect-flash')
 var validator = require('express-validator')
 var WishList = require('./models/WishList')
 var fileUpload = require('express-fileupload')
+var helmet = require('helmet');
+;
 
 var MongoStore = require('connect-mongo')(session)
 
@@ -34,7 +36,7 @@ var hbsHelpers = Hbs.create({
 
 mongoose.connect('mongodb://localhost:27017/local',{ useNewUrlParser: true } )
 require('./config/passport')
-
+app.use(helmet())
 app.engine('.hbs',  hbsHelpers.engine)
 app.set('view engine', '.hbs');
 app.use(logger('dev'));
@@ -45,11 +47,13 @@ app.use(validator())
 app.use(cookieParser());
 
 app.use(session({
-  secret:'secret', 
+  secure: true,
+  httpOnly: true,
+  secret:'sECREtSuPer258741', 
   resave:false,
   saveUninitialized:false,
   store: new MongoStore({ mongooseConnection: mongoose.connection }),
-  cookie: { maxAge: 24 * 60 * 60 * 1000 } 
+  cookie: { maxAge: 24 * 60 * 60 * 1000 },
 }))
 app.use(flash());
 app.use(passport.initialize());
@@ -73,8 +77,8 @@ app.use(fileUpload({
   abortOnLimit: true
 }))
 
-app.use('/uploads', express.static('uploads'));
 
+app.use('/uploads', express.static('uploads'));
 
 app.use('/', indexRouter); 
 app.use('/cart', cart);

@@ -6,7 +6,6 @@ module.exports.getMain = function(req, res){
     var classDisabled = 'list-group-item disabled';
     var prod = Product.find()
     prod.exec(function(err, p){
-        console.log(p)
         if(err){console.log(err)}
     var product = [];
     var maxPage =  Math.ceil(p.length/15);
@@ -55,10 +54,8 @@ module.exports.postMain = function(req, res){
     }
     if(activeEl.length > 1 && search.length >= 0){
         sort = {sort:{$all : activeEl}, name:{$regex:req.body.search}}; clickValue = clickValue || 1}
-    console.log(sort)
     Product.find(sort)   
     .exec(function(err, p){
-        console.log(p.length)
     var quantityPage = Math.ceil(p.length/15) 
     if(quantityPage == 0){quantityPage = 1} 
     if(quantityPage < 5){lastPage = quantityPage}
