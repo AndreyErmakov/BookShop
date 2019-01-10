@@ -146,7 +146,7 @@ module.exports = router;
 
 
 function isAdmin(req,res, next) {
-  if (req.isAuthenticated() && req.user._id == '5c305723f766f5579bed8030') {
+  if (req.isAuthenticated() && req.user._id == '5c3770204278330004205037') {
     return next()
   }
   req.flash( "error", "Not are not admin" );

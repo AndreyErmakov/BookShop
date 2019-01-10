@@ -92,7 +92,7 @@ function isLoggerIn(req,res, next) {
  }
 
  function isAdmin (req, res,next){
-   if (req.user._id == '5c305723f766f5579bed8030') {
+   if (req.user._id == '5c3770204278330004205037') {
     return res.redirect('/admin')
 
  }
@@ -100,7 +100,7 @@ function isLoggerIn(req,res, next) {
  }
 
  function isAdminOrders (req, res,next){
-   if (req.user._id == '5c305723f766f5579bed8030') {
+   if (req.user._id == '5c3770204278330004205037') {
     return res.redirect('/admin/orders')
   }
   next()
