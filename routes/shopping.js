@@ -7,7 +7,11 @@ var Cart = require('../models/cart')
 router.get('/cart', function(req, res) {
       var messages = req.flash('success')[0]
         if(!req.session.cart) {
-                return res.render('partials/shoppingCart', {product:null})
+                return res.render('partials/shoppingCart', 
+                {product:null,
+                message: messages,
+                noMessage:!messages
+                })
         }
         var cart = new Cart (req.session.cart)
         res.render('partials/shoppingCart',
